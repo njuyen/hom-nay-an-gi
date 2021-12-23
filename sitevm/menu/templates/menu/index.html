@@ -1,0 +1,10 @@
+{% extends 'menu/format.html' %}
+
+{% block dish %}
+<h1>Chọn món ăn</h1>
+<ul>
+    {% for dish in dishes %}
+    <li>Món: {{ dish }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

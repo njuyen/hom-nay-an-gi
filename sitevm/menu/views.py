@@ -1,7 +1,20 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Dish, Category
 
 # Create your views here.
 
 def index (request):
-    return HttpResponse("This is my response")
+    dishes = ['bún bò', 'phở', 'hủ tiếu']
+    map = { 'dishes': dishes}
+    return render(request, "menu/index.html", map)
+
+def category (request):
+    categories = Category.objects.all()
+    map = { 'categories': categories}
+    return render(request, "menu/category.html", map)
+
+def dishByCategory(request, category_id):
+    category = Category.objects.get(pk=category_id)
+    dishes = Dish.objects.filter(category=category)
+    map = { 'dishes': dishes}
+    return render(request, "menu/dishes.html", map)

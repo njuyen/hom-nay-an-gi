@@ -1,0 +1,14 @@
+{% extends 'menu/format.html' %}
+
+{% block dish %}
+<h1>Danh sách món ăn</h1>
+{% if dishes %}
+<ul>
+    {% for dish in dishes %}
+    <li>Món {{ dish.id }}: {{ dish.name }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Empty</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'menu/format.html' %}
+
+{% block category %}
+<h1>Chọn thể loại</h1>
+{% if categories %}
+<ul>
+    {% for category in categories %}
+    <li><a href="./{{ category.id }}">{{ category.id }}: {{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Empty</p>
+{% endif %}
+{% endblock %}
