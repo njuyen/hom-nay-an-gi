@@ -1,0 +1,17 @@
+name: Unit Test
+on: [push]
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+      - name: Run test
+        working-directory: ./sitevm
+        run: |
+          python -m pip install Django
+          python manage.py test
