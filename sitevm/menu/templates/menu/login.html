@@ -1,0 +1,11 @@
+{% extends 'menu/format.html' %}
+
+{% block login %}
+<h1>Click để chọn món ăn</h1>
+<form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    <label>username</label><input type="text" name="username" />
+    <label>password</label><input type="password" name="password" />
+    <input type="submit" value="submit" />
+</form>
+{% endblock %}

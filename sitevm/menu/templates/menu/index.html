@@ -1,10 +1,25 @@
 {% extends 'menu/format.html' %}
 
 {% block dish %}
-<h1>Chọn món ăn</h1>
-<ul>
-    {% for dish in dishes %}
-    <li>Món: {{ dish }}</li>
-    {% endfor %}
-</ul>
+<h1>Hôm nay ăn gì ?</h1>
+<form action="{% url 'submit' %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" id="currentTimeStamp" name="currentTimeStamp" />
+    <input type="submit" value="submit" onclick="return fillCurrentTimeStamp();"/>
+</form>
+
+{% if dish %}
+<div>
+    <ul>
+        <li>Món {{ dish.id }}:<a href = "{% url 'dishDetail' dish.id %}"> {{ dish.name }}</a></li>
+    </ul>
+</div>
+{% endif %}
+
+<script>
+    function fillCurrentTimeStamp() {
+       document.getElementById("currentTimeStamp").value  = new Date();
+       return true;
+    }
+</script>
 {% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'menu/format.html' %}
+
+{% block dish %}
+<h1>Chi tiết</h1>
+<ul>
+    <li>Tên: {{ dish.name }}</li>
+    <li>Địa chỉ: {{ dish.address }}</li>
+    <li>Thể loại: {{ dish.category.name }}</li>
+</ul>
+{% endblock %}
