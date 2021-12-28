@@ -10,4 +10,4 @@ COPY . /opt/app
 
 WORKDIR /opt/app
 
-ENTRYPOINT python manager.py runserver
+ENTRYPOINT python manage.py runserver
