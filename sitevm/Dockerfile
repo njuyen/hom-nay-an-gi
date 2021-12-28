@@ -13,5 +13,3 @@ EXPOSE 8000
 WORKDIR /opt/app
 
 ENTRYPOINT python manage.py runserver
-
-docker run -it --entrypoint "/bin/bash" nguyenphuocpham/hom-nay-an-gi
